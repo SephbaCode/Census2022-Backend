@@ -1,0 +1,21 @@
+Creación y carga de la base de datos
+Este proyecto incluye tres archivos esenciales para la configuración de la base de datos:
+
+census-create_tables.sql: Contiene las instrucciones SQL necesarias para crear la estructura base de la base de datos, incluyendo todas las tablas requeridas.
+
+census-insert_data1.sql: Incluye las sentencias SQL para poblar tablas con datos de tipo o valores predefinidos, como catálogos o listas fijas.
+
+censusRegisters.csv: Archivo en formato CSV que contiene aproximadamente 1.5 millones de registros para la tabla census. Este archivo se utiliza para cargar las entradas y representa la mayor parte del volumen de datos.
+
+Nota: El ultimo archivo no fue generado en formato insert script debido a su gran volumen, se opto por su extraccion en formato csv la carga de datos se puede hacer mediante el comando
+
+COPY public.census (
+    province_i01, canton_i02, n_house, roof_condition, wall_condition, floor_condition,
+    rooms_count, housing_amount, aur, canton, id_viv, totfall, totemi, totper, def_hab,
+    imp_vopa, ocupation_type, id, road_type, housing_type, roof_material, wall_material,
+    floor_material, water_supply_type, water_source_type, sanitation_type, has_electricity,
+    alt_elec_src_type, waste_disposal_type, common_pot
+)
+FROM '/ruta/completa/censusRegisters.csv'   <------  MODIFICAR RUTA DEL ARCHIVO
+DELIMITER ','
+CSV;
