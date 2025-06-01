@@ -78,7 +78,7 @@ create table public.census
     ocupation_type      varchar
         constraint ocupation_type_fk
             references public.types (code),
-    id                  integer default nextval('registro_censo_id_seq'::regclass) not null
+    id                  integer not null
         constraint registro_censo_pkey
             primary key,
     road_type           varchar
@@ -117,4 +117,8 @@ create table public.census
 
 alter table public.census
     owner to postgres;
+
+create index idx_canton on public.census
+    using btree
+    (canton);
 
