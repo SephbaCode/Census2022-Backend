@@ -15,7 +15,7 @@ app.use('/cantons', cantonRoutes);
 app.use('/canton/:type', conditionDistributionRoutes);
 
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8081;
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
