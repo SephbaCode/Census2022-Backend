@@ -3,8 +3,12 @@ const app = express();
 const typesRoutes = require('./routes/types');
 const conditionDistributionRoutes = require('./routes/conditionRoutes');
 const cantonRoutes = require('./routes/cantons');
+const cors = require('cors');
 
 app.use(express.json());
+app.use(cors({
+  origin: 'http://localhost:3000'
+}));
 app.use('/types', typesRoutes);
 app.use('/conditions', conditionDistributionRoutes);
 app.use('/cantons', cantonRoutes);
